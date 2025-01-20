@@ -15,6 +15,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the tests folder
 COPY tests/ /app/tests/
+COPY src/ /app/src/
 
 # Copy project files into the container
 COPY . .
@@ -22,7 +23,7 @@ COPY . .
 # Add the src directory to the PYTHONPATH
 ENV PYTHONPATH="/app/src"
 ENV PYTHONPATH="/app/src/featureExtraction/code2vec:/app/src:${PYTHONPATH}"
-
+ENV PYTHONPATH="/app/data/input/flask_app"
 
 # Expose port (if needed for debugging or API services)
 EXPOSE 8000
