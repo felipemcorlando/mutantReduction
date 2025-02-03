@@ -1,5 +1,4 @@
 import time
 while True:
-    print("Hello worlds")
-    time.sleep(10)
+    time.sleep(100000) # Sleep for a long time to keep the container running
     
