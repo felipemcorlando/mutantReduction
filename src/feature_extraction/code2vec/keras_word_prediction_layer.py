@@ -4,7 +4,7 @@ from tensorflow.python.keras.layers import Layer
 import tensorflow.python.keras.backend as K
 from typing import Optional, List, Callable
 from functools import reduce
-from common import common
+from .common import common
 
 
 class WordPredictionLayer(Layer):

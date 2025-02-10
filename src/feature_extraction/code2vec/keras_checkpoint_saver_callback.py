@@ -7,7 +7,7 @@ import tensorflow as tf
 from tensorflow.python import keras
 from tensorflow.python.keras.callbacks import Callback
 
-from config import Config
+from .config import Config
 
 
 class ModelTrainingStatus:

@@ -5,7 +5,7 @@ import abc
 from typing import Optional, Callable, List
 from functools import reduce
 
-from common import common
+from .common import common
 
 
 class WordsSubtokenMetricBase(tf.metrics.Metric): # KIR

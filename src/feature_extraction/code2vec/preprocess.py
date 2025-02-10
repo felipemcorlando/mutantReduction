@@ -66,6 +66,9 @@ def process_file(file_path, data_file_role, dataset_name, word_to_count, path_to
                 total += 1
 
     print('File: ' + data_file_path)
+    print(f"DEBUG: sum_total={sum_total}, total={total}")
+    if total == 0:
+        raise ValueError("Error: No valid processed examples. Check your input data.")
     print('Average total contexts: ' + str(float(sum_total) / total))
     print('Average final (after sampling) contexts: ' + str(float(sum_sampled) / total))
     print('Total examples: ' + str(total))

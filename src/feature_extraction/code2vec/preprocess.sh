@@ -30,14 +30,14 @@ WORD_VOCAB_SIZE=50000
 PATH_VOCAB_SIZE=50000
 TARGET_VOCAB_SIZE=50
 NUM_THREADS=64
-PYTHON=python3
+PYTHON=python3.8
 JAVA=java 
 ###########################################################
 
 TRAIN_DATA_FILE=${DATASET_NAME}_train
 VAL_DATA_FILE=${DATASET_NAME}_val
 TEST_DATA_FILE=${DATASET_NAME}_test
-EXTRACTOR_JAR=cd2vec/cli.jar
+EXTRACTOR_JAR=src/feature_extraction/code2vec/cd2vec/cli.jar
 
 mkdir -p data
 mkdir -p data/${DATASET_NAME}

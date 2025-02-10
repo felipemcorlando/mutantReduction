@@ -5,7 +5,7 @@ from tensorflow.keras.callbacks import Callback
 import tensorflow.keras.backend as K
 from tensorflow.keras.metrics import sparse_top_k_categorical_accuracy
 
-from path_context_reader import PathContextReader, ModelInputTensorsFormer, ReaderInputTensors, EstimatorAction
+from .path_context_reader import PathContextReader, ModelInputTensorsFormer, ReaderInputTensors, EstimatorAction
 import os
 import numpy as np
 from functools import partial
@@ -13,14 +13,14 @@ from typing import List, Optional, Iterable, Union, Callable, Dict
 from collections import namedtuple
 import time
 import datetime
-from vocabularies import VocabType
-from keras_attention_layer import AttentionLayer
-from keras_topk_word_predictions_layer import TopKWordPredictionsLayer
-from keras_words_subtoken_metrics import WordsSubtokenPrecisionMetric, WordsSubtokenRecallMetric, WordsSubtokenF1Metric
-from config import Config
-from common import common
-from model_base import Code2VecModelBase, ModelEvaluationResults, ModelPredictionResults
-from keras_checkpoint_saver_callback import ModelTrainingStatus, ModelTrainingStatusTrackerCallback,\
+from .vocabularies import VocabType
+from .keras_attention_layer import AttentionLayer
+from .keras_topk_word_predictions_layer import TopKWordPredictionsLayer
+from .keras_words_subtoken_metrics import WordsSubtokenPrecisionMetric, WordsSubtokenRecallMetric, WordsSubtokenF1Metric
+from .config import Config
+from .common import common
+from .model_base import Code2VecModelBase, ModelEvaluationResults, ModelPredictionResults
+from .keras_checkpoint_saver_callback import ModelTrainingStatus, ModelTrainingStatusTrackerCallback,\
     ModelCheckpointSaverCallback, MultiBatchCallback, ModelTrainingProgressLoggerCallback
 
 
