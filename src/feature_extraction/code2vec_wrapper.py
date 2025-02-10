@@ -9,6 +9,7 @@ class Code2VecWrapper:
         try:
             # Initialize configuration
             self.config = Config(set_defaults=True)
+            self.config.DL_FRAMEWORK = 'keras'  # Set the framework explicitly
             self.config.MODEL_LOAD_PATH = model_path
             self.model = load_model_dynamically(self.config)
             print("✅ Code2Vec model loaded successfully.")
@@ -27,7 +28,7 @@ class Code2VecWrapper:
             return None
 
         try:
-            vector = self.model.infer_vector(code_snippet)
+            vector = self.model.predict(code_snippet)
             return vector
         except Exception as e:
             print(f"⚠️ Error processing snippet: {e}")
@@ -44,7 +45,7 @@ class Code2VecWrapper:
         print(f"📂 Processing mutants from: {mutants_dir}")
 
         for filename in os.listdir(mutants_dir):
-            if filename.endswith(".py"):  # Only process Python files
+            if filename.endswith((".c2v", ".txt")): 
                 mutant_path = os.path.join(mutants_dir, filename)
                 try:
                     with open(mutant_path, "r") as file:
@@ -74,8 +75,8 @@ class Code2VecWrapper:
 
 
 if __name__ == "__main__":
-    model_path = "data/models/code2vec_model"  # Path to the pre-trained Code2Vec model
-    mutants_dir = "data/output/"               # Directory where mutants are stored
+    model_path = "data/models/code2vec_model/saved_model__entire-model/ckpt-1"  # Path to the pre-trained Code2Vec model
+    mutants_dir = "data/output/preprocessed"  # Directory where mutants are stored
 
     code2vec = Code2VecWrapper(model_path)
     code2vec.process_mutants(mutants_dir)
