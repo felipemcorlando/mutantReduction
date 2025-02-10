@@ -171,4 +171,9 @@ cython_debug/
 .pypirc
 
 # Ignore logs and saved mutants generated during mutation testing
-data/output/*
+data/output/
+
+
+
+# API file
+our_key.txt
