@@ -30,3 +30,8 @@ sudo apt install default-jre
 '''
 source src/feature_extraction/code2vec/preprocess.sh
 '''
+
+clustering hdbscan
+(.venv) felipe@felipe-pc:~/TelecomSudParis/mutantReduction$ pip install pyqt5
+(.venv) felipe@felipe-pc:~/TelecomSudParis/mutantReduction$ sudo apt update
+sudo apt install --reinstall libxcb-xinerama0 libxcb-icccm4 libxcb-image0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-shape0 libxcb-xkb1
