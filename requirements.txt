@@ -10,3 +10,4 @@ astor
 keras==2.4.3
 transitions
 pyqt5
+pytest-mutagen
