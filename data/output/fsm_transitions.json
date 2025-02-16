@@ -1,0 +1,1198 @@
+{
+    "mutant_0.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_1.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_2.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_3.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_4.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_5.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_6.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_7.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_8.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_9.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_10.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_11.py": {
+        "id": "#",
+        "type": "AOR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_12.py": {
+        "id": "#",
+        "type": "COI",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_13.py": {
+        "id": "#",
+        "type": "COI",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_14.py": {
+        "id": "#",
+        "type": "COI",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_15.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_16.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_17.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_18.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_19.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_20.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_21.py": {
+        "id": "#",
+        "type": "ROR",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_22.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_23.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_24.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_25.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_26.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_27.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_28.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_29.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_30.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_31.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_32.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_33.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_34.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_35.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_36.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_37.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_38.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_39.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_40.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_41.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_42.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_43.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_44.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    },
+    "mutant_45.py": {
+        "id": "#",
+        "type": "SDL",
+        "fsm_transitions": {
+            "original_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "booking",
+                "confirmed"
+            ],
+            "mutant_transitions": [
+                "idle",
+                "searching",
+                "selecting",
+                "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+            ],
+            "differences": [
+                {
+                    "step": 3,
+                    "original_state": "booking",
+                    "mutant_state": "ERROR: \"Can't trigger event confirm_booking from state selecting!\""
+                }
+            ]
+        }
+    }
+}

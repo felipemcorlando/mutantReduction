@@ -9,3 +9,4 @@ scipy
 flask
 astor
 keras==2.4.3
+transitions
