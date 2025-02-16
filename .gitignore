@@ -172,3 +172,5 @@ cython_debug/
 
 # Ignore logs and saved mutants generated during mutation testing
 #data/output/*
+# API file
+our_key.txt
