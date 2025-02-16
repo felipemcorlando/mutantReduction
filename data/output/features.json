@@ -1,0 +1,370 @@
+{
+    "mutant_44.py": {
+        "num_lines": 55,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 4,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_39.py": {
+        "num_lines": 54,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 4,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_2.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_14.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 4,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_24.py": {
+        "num_lines": 57,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_30.py": {
+        "num_lines": 55,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_16.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_28.py": {
+        "num_lines": 57,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_38.py": {
+        "num_lines": 54,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_36.py": {
+        "num_lines": 53,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_0.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_33.py": {
+        "num_lines": 54,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_7.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_31.py": {
+        "num_lines": 57,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 4,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_18.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_3.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_17.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_13.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 4,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_12.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 4,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_26.py": {
+        "num_lines": 59,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_23.py": {
+        "num_lines": 56,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_11.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_22.py": {
+        "num_lines": 54,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_20.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_9.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_41.py": {
+        "num_lines": 60,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_19.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_10.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_27.py": {
+        "num_lines": 57,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 4,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_42.py": {
+        "num_lines": 58,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_35.py": {
+        "num_lines": 55,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_29.py": {
+        "num_lines": 56,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 4,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_6.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_15.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_1.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_40.py": {
+        "num_lines": 57,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 4,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_45.py": {
+        "num_lines": 55,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_32.py": {
+        "num_lines": 56,
+        "func_calls": 19,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_4.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_37.py": {
+        "num_lines": 58,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_21.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_34.py": {
+        "num_lines": 58,
+        "func_calls": 19,
+        "conditionals": 3,
+        "arithmetic_ops": 4,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_43.py": {
+        "num_lines": 58,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_25.py": {
+        "num_lines": 57,
+        "func_calls": 20,
+        "conditionals": 2,
+        "arithmetic_ops": 2,
+        "logical_ops": 0,
+        "cyclomatic_complexity": 7
+    },
+    "mutant_8.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    },
+    "mutant_5.py": {
+        "num_lines": 64,
+        "func_calls": 20,
+        "conditionals": 3,
+        "arithmetic_ops": 6,
+        "logical_ops": 1,
+        "cyclomatic_complexity": 8
+    }
+}
