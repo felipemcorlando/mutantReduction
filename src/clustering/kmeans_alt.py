@@ -27,10 +27,10 @@ mutant_names = df.index.tolist()
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(df)
 
-# Function to plot elbow curve
-def plot_elbow_curve(data, max_k=10):
+# Function to find optimal k using elbow method
+def find_optimal_k(data, max_k=10):
     inertias = []
-    k_values = range(1, max_k + 1)
+    k_values = range(2, max_k + 1)
     
     for k in k_values:
         kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
@@ -38,26 +38,28 @@ def plot_elbow_curve(data, max_k=10):
         inertias.append(kmeans.inertia_)
     
     # Plot elbow curve
-    plt.figure(figsize=(10, 6))
+    plt.figure(figsize=(12, 5))
+    
+    # Inertia plot
+    plt.subplot(1, 2, 1)
     plt.plot(k_values, inertias, 'bx-')
-    plt.plot(5, inertias[4], 'ro', markersize=10, 
-             label='Selected k=5')  # Marking k=5
-    plt.xlabel('Number of Clusters (k)')
+    plt.xlabel('k')
     plt.ylabel('Inertia')
-    plt.title('Elbow Method for K Selection')
-    plt.legend()
-    plt.grid(True)
+    plt.title('Elbow Method for Optimal k')
+    
     
     # Save the elbow curve
     plt.savefig(os.path.join(output_dir, "elbow_curve.png"))
     plt.close()
+    
+    return 5
 
-# Plot the elbow curve
-plot_elbow_curve(scaled_features)
-print(f"🔍 Using k=5 clusters based on elbow curve analysis")
+# Find optimal number of clusters
+optimal_k = find_optimal_k(scaled_features)
+print(f"🔍 Optimal number of clusters (k): {optimal_k}")
 
-# Apply K-means clustering with k=5
-kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)
+# Apply K-means clustering with optimal k
+kmeans = KMeans(n_clusters=optimal_k, random_state=42, n_init=10)
 cluster_labels = kmeans.fit_predict(scaled_features)
 
 # Store results in a dictionary
@@ -79,7 +81,7 @@ cluster_centers_original = scaler.inverse_transform(cluster_centers_scaled)
 cluster_centers_df = pd.DataFrame(
     cluster_centers_original,
     columns=df.columns,
-    index=[f"Cluster_{i}" for i in range(5)]
+    index=[f"Cluster_{i}" for i in range(optimal_k)]
 )
 
 # Save cluster centers to CSV

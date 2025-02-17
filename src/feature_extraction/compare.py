@@ -39,19 +39,22 @@ def compare_files(file1_path: str, file2_path: str, show_differences: bool = Tru
         differ = difflib.Differ()
         diff = list(differ.compare(file1_lines, file2_lines))
         
-        # Print differences
-        print("\nDifferences found:")
-        print("Legend: '+' new line, '-' deleted line, '?' modified line\n")
-        for line in diff:
-            if line.startswith(('+ ', '- ', '? ')):
-                print(line.rstrip())
+        if show_diff:
+            # Print differences
+            print("\nDifferences found:")
+            print("Legend: '+' new line, '-' deleted line, '?' modified line\n")
+            for line in diff:
+                if line.startswith(('+ ', '- ', '? ')):
+                    print(line.rstrip())
     
     return are_identical
 
 if __name__ == '__main__':
     
+    global show_diff
+    show_diff = False
 
-    directory = './data/output/' 
+    directory = './data/output/mutants' 
 
 
     for i in range(0, 30):
@@ -59,7 +62,7 @@ if __name__ == '__main__':
 
         try:
 
-            file1 = "./data/output/mutant_0.py"
+            file1 = "./data/output/mutants/mutant_39.py"
             
             result = compare_files(file1, file2)
             if result:
