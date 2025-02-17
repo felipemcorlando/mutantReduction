@@ -5,7 +5,7 @@ import pandas as pd
 from scipy.spatial.distance import euclidean
 
 # Define paths
-cluster_path = "data/output/clustering/cluster_assignments.json"
+cluster_path = "data/output/clustering/kmeans_cluster_assignments.json"
 features_path = "data/output/features.json"
 output_dir = "data/output/clustering/"
 os.makedirs(output_dir, exist_ok=True)
