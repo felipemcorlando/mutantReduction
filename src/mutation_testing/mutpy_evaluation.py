@@ -24,7 +24,7 @@ os.makedirs(evaluation_dir, exist_ok=True)
 # ✅ Track mutation testing results
 results = {
     "selected_mutants_count": len(selected_mutants),
-    "original_mutants_count": len(os.listdir("data/output/mutants/")),
+    "original_mutants_count": len(selected_mutants),
     "mutation_score": None,
     "raw_output": ""
 }
