@@ -1,6 +1,7 @@
 import os
 import json
 from itertools import combinations
+import importlib.util
 from src.fsm_modeling.flight_booking_fsm import FlightBookingFSM  
 
 # Paths
@@ -25,6 +26,15 @@ TEST_SUITE = [
     ["A", "A", "A", "A", "X", "A", "A", "A", "A", "A"],  # Booked → DS
     ["A", "A", "X", "A", "A", "A", "A"]  # Details → Cancelled → DS
 ]
+
+# Function to dynamically load a mutant FSM
+def load_fsm_from_file(mutant_path):
+    """Dynamically loads an FSM class from a mutant file."""
+    module_name = os.path.basename(mutant_path).replace(".py", "")
+    spec = importlib.util.spec_from_file_location(module_name, mutant_path)
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    return module.FlightBookingFSM()
 
 # Execute Test Suite on FSM
 def execute_fsm(fsm, sequence):
@@ -79,8 +89,8 @@ for cluster_id, mutants in clusters.items():
         mutant2_path = os.path.join(mutants_dir, mutant2)
 
         try:
-            fsm1 = FlightBookingFSM()
-            fsm2 = FlightBookingFSM()
+            fsm1 = load_fsm_from_file(mutant1_path)
+            fsm2 = load_fsm_from_file(mutant2_path)
 
             # Check equivalence
             if are_mutants_equivalent(fsm1, fsm2):
