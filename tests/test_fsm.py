@@ -1,54 +1,46 @@
 import unittest
 from src.fsm_modeling.flight_booking_fsm import FlightBookingFSM
-from transitions.core import MachineError  # To catch invalid transitions
+
 
 class TestFlightBookingFSM(unittest.TestCase):
-    """
-    Unit tests for the FlightBookingFSM.
-    """
 
     def setUp(self):
-        """
-        Set up a new FSM instance for each test.
-        """
-        self.booking = FlightBookingFSM()
+        """Initialize a fresh FSM instance before each test."""
+        self.fsm = FlightBookingFSM()
 
     def test_initial_state(self):
-        """Test that the FSM starts in 'idle' state."""
-        self.assertEqual(self.booking.get_state(), "idle")
+        """Test that FSM starts in the Idle state."""
+        self.assertEqual(self.fsm.state, "Idle")
 
     def test_valid_transitions(self):
-        """Test that valid transitions move to the correct states."""
-        self.booking.search_flights()
-        self.assertEqual(self.booking.get_state(), "searching")
+        """Test valid FSM transitions using different input sequences."""
+        test_cases = [
+            (["A", "A", "A", "A"], "Booked"),  # Valid full sequence
+            (["A", "X"], "Cancelled"),  # Cancel early
+            (["X"], "Idle"),  # Stay in Idle
+            (["A", "A", "X"], "Cancelled"),  # Cancel at Confirming
+            (["A", "A", "A", "X"], "Booked"),  # X in Booked does nothing
+        ]
 
-        self.booking.select_flight()
-        self.assertEqual(self.booking.get_state(), "selecting")
+        for inputs, expected_final_state in test_cases:
+            with self.subTest(inputs=inputs, expected_state=expected_final_state):
+                self.fsm.reset()
+                for inp in inputs:
+                    self.fsm.transition(inp)
+                self.assertEqual(self.fsm.state, expected_final_state)
 
-        self.booking.enter_payment()
-        self.assertEqual(self.booking.get_state(), "booking")
+    def test_invalid_input(self):
+        """Test that FSM raises an error on invalid input."""
+        with self.assertRaises(ValueError):
+            self.fsm.transition("B")  # Invalid input should raise an exception
 
-        self.booking.confirm_booking()
-        self.assertEqual(self.booking.get_state(), "confirmed")
+    def test_reset_function(self):
+        """Test the FSM reset functionality."""
+        self.fsm.transition("A")
+        self.assertNotEqual(self.fsm.state, "Idle")
+        self.fsm.reset()
+        self.assertEqual(self.fsm.state, "Idle")
 
-    def test_invalid_transitions(self):
-        """Test that invalid transitions raise an error."""
-        with self.assertRaises(MachineError):
-            self.booking.select_flight()  # Can't select flight before searching
-
-        with self.assertRaises(MachineError):
-            self.booking.enter_payment()  # Can't enter payment before selecting
-
-        with self.assertRaises(MachineError):
-            self.booking.confirm_booking()  # Can't confirm before payment
-
-    def test_complete_flight_booking(self):
-        """Test the full sequence from idle to confirmed."""
-        self.booking.search_flights()
-        self.booking.select_flight()
-        self.booking.enter_payment()
-        self.booking.confirm_booking()
-        self.assertEqual(self.booking.get_state(), "confirmed")
 
 if __name__ == "__main__":
     unittest.main()
