@@ -126,7 +126,7 @@ cbar = plt.colorbar(scatter)
 cbar.set_label("Cluster ID")
 
 # Save the figure
-output_image_path = os.path.join(output_dir, "kmeans_clustering.png")
+output_image_path = os.path.join(output_dir, "kmeans_clustering_alt.png")
 plt.savefig(output_image_path)
 print(f"📊 Clustering visualization saved to {output_image_path}")
 

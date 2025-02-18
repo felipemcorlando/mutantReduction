@@ -1,131 +1,147 @@
-import os
 import json
 import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
+from sklearn.cluster import DBSCAN
+import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
-from sklearn.cluster import KMeans
-from collections import Counter
+import pandas as pd
 
-# Define paths
-features_path = "data/output/features.json"
-output_dir = "data/output/clustering/"
-os.makedirs(output_dir, exist_ok=True)
-
-# Load extracted features from JSON
-with open(features_path, "r") as f:
-    features_data = json.load(f)
-
-# Convert features to DataFrame
-df = pd.DataFrame.from_dict(features_data, orient="index")
-
-# Store mutant names
-mutant_names = df.index.tolist()
-
-# Normalize features (Standardization)
-scaler = StandardScaler()
-scaled_features = scaler.fit_transform(df)
-
-# Function to plot elbow curve
-def plot_elbow_curve(data, max_k=10):
-    inertias = []
-    k_values = range(1, max_k + 1)
+def load_features(features_file):
+    """Load features from JSON file and convert to numpy array."""
+    with open(features_file, 'r') as f:
+        features_dict = json.load(f)
     
-    for k in k_values:
-        kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
-        kmeans.fit(data)
-        inertias.append(kmeans.inertia_)
+    # Convert dictionary to DataFrame
+    df = pd.DataFrame.from_dict(features_dict, orient='index')
     
-    # Plot elbow curve
-    plt.figure(figsize=(10, 6))
-    plt.plot(k_values, inertias, 'bx-')
-    plt.plot(5, inertias[4], 'ro', markersize=10, 
-             label='Selected k=5')  # Marking k=5
-    plt.xlabel('Number of Clusters (k)')
-    plt.ylabel('Inertia')
-    plt.title('Elbow Method for K Selection')
+    # Store mutant names for later reference
+    mutant_names = list(features_dict.keys())
+    
+    # Convert to numpy array for clustering
+    feature_matrix = df.values
+    
+    return feature_matrix, mutant_names, df
+
+def perform_clustering(feature_matrix, eps=0.5, min_samples=2):
+    """Perform DBSCAN clustering on normalized features."""
+    # Normalize features
+    scaler = StandardScaler()
+    normalized_features = scaler.fit_transform(feature_matrix)
+    
+    # Perform DBSCAN clustering
+    dbscan = DBSCAN(eps=eps, min_samples=min_samples)
+    clusters = dbscan.fit_predict(normalized_features)
+    
+    return clusters, normalized_features
+
+def visualize_clusters(normalized_features, clusters, mutant_names, output_file):
+    """Create a 2D visualization of the clusters using PCA."""
+    # Reduce dimensionality to 2D using PCA
+    pca = PCA(n_components=2)
+    features_2d = pca.fit_transform(normalized_features)
+    
+    # Create the plot
+    plt.figure(figsize=(12, 8))
+    
+    # Get unique clusters
+    unique_clusters = np.unique(clusters)
+    
+    # Create a colormap with distinct colors for each cluster
+    colors = plt.cm.rainbow(np.linspace(0, 1, len(unique_clusters)))
+    
+    # Plot points for each cluster with different colors
+    for cluster_id, color in zip(unique_clusters, colors):
+        mask = clusters == cluster_id
+        label = 'Noise' if cluster_id == -1 else f'Cluster {cluster_id}'
+        plt.scatter(features_2d[mask, 0], features_2d[mask, 1], 
+                   c=[color], label=label, alpha=0.7)
+    
+    # Add small dots to show exact positions
+    plt.scatter(features_2d[:, 0], features_2d[:, 1], c='black', s=1, alpha=0.5)
+    
+    # Print information about potential overlapping points
+    unique_positions = set()
+    overlapping_points = []
+    
+    for i, (x, y) in enumerate(features_2d):
+        pos = (round(x, 4), round(y, 4))  # Round to 4 decimal places
+        if pos in unique_positions:
+            overlapping_points.append(mutant_names[i])
+        unique_positions.add(pos)
+    
+    if overlapping_points:
+        print("\nOverlapping points detected:")
+        print("The following mutants have identical or very similar positions:")
+        for point in overlapping_points:
+            print(f"- {point}")
+    
+    # Print total points
+    print(f"\nTotal mutants: {len(mutant_names)}")
+    print(f"Unique positions on plot: {len(unique_positions)}")
+    
+    plt.title('Mutant Clusters Visualization')
+    plt.xlabel('First Principal Component')
+    plt.ylabel('Second Principal Component')
     plt.legend()
-    plt.grid(True)
     
-    # Save the elbow curve
-    plt.savefig(os.path.join(output_dir, "elbow_curve.png"))
+    # Save the plot
+    plt.savefig(output_file, dpi=300, bbox_inches='tight')
     plt.close()
 
-# Plot the elbow curve
-plot_elbow_curve(scaled_features)
-print(f"🔍 Using k=5 clusters based on elbow curve analysis")
+def analyze_clusters(clusters, mutant_names, df):
+    """Analyze and print information about the clusters."""
+    unique_clusters = np.unique(clusters)
+    
+    print("\nCluster Analysis:")
+    print("=" * 50)
+    
+    for cluster in unique_clusters:
+        cluster_mask = clusters == cluster
+        cluster_mutants = np.array(mutant_names)[cluster_mask]
+        cluster_features = df.iloc[cluster_mask]
+        
+        if cluster == -1:
+            print("\nNoise points (outliers):")
+        else:
+            print(f"\nCluster {cluster}:")
+        
+        print(f"Number of mutants: {len(cluster_mutants)}")
+        print("Mutants:", ", ".join(cluster_mutants))
+        
+        print("\nCluster characteristics (mean values):")
+        for feature in df.columns:
+            mean_value = cluster_features[feature].mean()
+            print(f"{feature}: {mean_value:.2f}")
+        
+        print("-" * 50)
 
-# Apply K-means clustering with k=5
-kmeans = KMeans(n_clusters=5, random_state=42, n_init=10)
-cluster_labels = kmeans.fit_predict(scaled_features)
+def main():
+    # File paths
+    features_file = "data/output/features.json"
+    visualization_file = "data/output/clustering/dbscan_output.png"
+    
+    # Load features
+    feature_matrix, mutant_names, df = load_features(features_file)
+    
+    # Perform clustering
+    clusters, normalized_features = perform_clustering(
+        feature_matrix, 
+        eps=2.0,  # Adjust this value based on your needs
+        min_samples=2
+    )
+    
+    # Visualize results
+    visualize_clusters(normalized_features, clusters, mutant_names, visualization_file)
+    
+    # Analyze clusters
+    analyze_clusters(clusters, mutant_names, df)
+    
+    # Print summary
+    n_clusters = len(np.unique(clusters)) - (1 if -1 in clusters else 0)
+    print(f"\nSummary:")
+    print(f"Total number of clusters found: {n_clusters}")
+    print(f"Number of noise points: {list(clusters).count(-1)}")
+    print(f"Visualization saved to: {visualization_file}")
 
-# Store results in a dictionary
-cluster_assignments = {mutant_names[i]: int(cluster_labels[i]) for i in range(len(mutant_names))}
-
-# Save cluster assignments to JSON
-output_path = os.path.join(output_dir, "kmeans_cluster_assignments.json")
-with open(output_path, "w") as f:
-    json.dump(cluster_assignments, f, indent=4)
-print(f"✅ Cluster assignments saved to {output_path}")
-
-# Display cluster summary
-cluster_counts = Counter(cluster_labels)
-print(f"🔢 Cluster distribution: {dict(cluster_counts)}")
-
-# Calculate cluster centers in original feature space
-cluster_centers_scaled = kmeans.cluster_centers_
-cluster_centers_original = scaler.inverse_transform(cluster_centers_scaled)
-cluster_centers_df = pd.DataFrame(
-    cluster_centers_original,
-    columns=df.columns,
-    index=[f"Cluster_{i}" for i in range(5)]
-)
-
-# Save cluster centers to CSV
-centers_output_path = os.path.join(output_dir, "kmeans_cluster_centers.csv")
-cluster_centers_df.to_csv(centers_output_path)
-print(f"📊 Cluster centers saved to {centers_output_path}")
-
-# Reduce dimensions for visualization using PCA
-pca = PCA(n_components=2)
-reduced_features = pca.fit_transform(scaled_features)
-reduced_centers = pca.transform(cluster_centers_scaled)
-
-# Plot clusters with centers
-plt.figure(figsize=(10, 6))
-scatter = plt.scatter(
-    reduced_features[:, 0],
-    reduced_features[:, 1],
-    c=cluster_labels,
-    cmap="tab10",
-    alpha=0.6,
-    edgecolors="k"
-)
-
-# Plot cluster centers
-plt.scatter(
-    reduced_centers[:, 0],
-    reduced_centers[:, 1],
-    c='red',
-    marker='x',
-    s=200,
-    linewidth=3,
-    label='Cluster Centers'
-)
-
-plt.xlabel("PCA Component 1")
-plt.ylabel("PCA Component 2")
-plt.title("K-means Mutant Clustering")
-plt.legend()
-
-# Add cluster size legend
-cbar = plt.colorbar(scatter)
-cbar.set_label("Cluster ID")
-
-# Save the figure
-output_image_path = os.path.join(output_dir, "kmeans_clustering.png")
-plt.savefig(output_image_path)
-print(f"📊 Clustering visualization saved to {output_image_path}")
-
-plt.close()
+if __name__ == "__main__":
+    main()
