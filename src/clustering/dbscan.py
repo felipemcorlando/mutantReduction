@@ -5,6 +5,8 @@ from sklearn.cluster import DBSCAN
 import matplotlib.pyplot as plt
 from sklearn.decomposition import PCA
 import pandas as pd
+import os
+from collections import Counter
 
 def load_features(features_file):
     """Load features from JSON file and convert to numpy array."""
@@ -34,91 +36,57 @@ def perform_clustering(feature_matrix, eps=0.5, min_samples=2):
     
     return clusters, normalized_features
 
-def visualize_clusters(normalized_features, clusters, mutant_names, output_file):
-    """Create a 2D visualization of the clusters using PCA."""
+def save_cluster_assignments(clusters, mutant_names, output_file):
+    """Save cluster assignments to JSON file."""
+    cluster_dict = {name: int(cluster) for name, cluster in zip(mutant_names, clusters)}
+    
+    with open(output_file, 'w') as f:
+        json.dump(cluster_dict, f, indent=4)
+    
+    return cluster_dict
+
+def visualize_clusters(normalized_features, clusters, output_file):
+    """Create a 2D visualization of the clusters using PCA, matching HDBSCAN style."""
     # Reduce dimensionality to 2D using PCA
     pca = PCA(n_components=2)
-    features_2d = pca.fit_transform(normalized_features)
+    reduced_features = pca.fit_transform(normalized_features)
     
     # Create the plot
-    plt.figure(figsize=(12, 8))
+    plt.figure(figsize=(10, 6))
     
-    # Get unique clusters
-    unique_clusters = np.unique(clusters)
+    # Add jitter to prevent overlapping
+    jittered_features = reduced_features + np.random.uniform(-0.05, 0.05, size=reduced_features.shape)
     
-    # Create a colormap with distinct colors for each cluster
-    colors = plt.cm.rainbow(np.linspace(0, 1, len(unique_clusters)))
+    # Create scatter plot with tab10 colormap
+    scatter = plt.scatter(
+        jittered_features[:, 0],
+        jittered_features[:, 1],
+        c=clusters,
+        cmap='tab10',
+        edgecolors='k',
+        alpha=0.6
+    )
     
-    # Plot points for each cluster with different colors
-    for cluster_id, color in zip(unique_clusters, colors):
-        mask = clusters == cluster_id
-        label = 'Noise' if cluster_id == -1 else f'Cluster {cluster_id}'
-        plt.scatter(features_2d[mask, 0], features_2d[mask, 1], 
-                   c=[color], label=label, alpha=0.7)
+    plt.xlabel('PCA Component 1')
+    plt.ylabel('PCA Component 2')
+    plt.title('DBSCAN Mutant Clustering')
     
-    # Add small dots to show exact positions
-    plt.scatter(features_2d[:, 0], features_2d[:, 1], c='black', s=1, alpha=0.5)
-    
-    # Print information about potential overlapping points
-    unique_positions = set()
-    overlapping_points = []
-    
-    for i, (x, y) in enumerate(features_2d):
-        pos = (round(x, 4), round(y, 4))  # Round to 4 decimal places
-        if pos in unique_positions:
-            overlapping_points.append(mutant_names[i])
-        unique_positions.add(pos)
-    
-    if overlapping_points:
-        print("\nOverlapping points detected:")
-        print("The following mutants have identical or very similar positions:")
-        for point in overlapping_points:
-            print(f"- {point}")
-    
-    # Print total points
-    print(f"\nTotal mutants: {len(mutant_names)}")
-    print(f"Unique positions on plot: {len(unique_positions)}")
-    
-    plt.title('Mutant Clusters Visualization')
-    plt.xlabel('First Principal Component')
-    plt.ylabel('Second Principal Component')
-    plt.legend()
+    # Add colorbar
+    cbar = plt.colorbar(scatter)
+    cbar.set_label('Cluster ID')
     
     # Save the plot
     plt.savefig(output_file, dpi=300, bbox_inches='tight')
     plt.close()
 
-def analyze_clusters(clusters, mutant_names, df):
-    """Analyze and print information about the clusters."""
-    unique_clusters = np.unique(clusters)
-    
-    print("\nCluster Analysis:")
-    print("=" * 50)
-    
-    for cluster in unique_clusters:
-        cluster_mask = clusters == cluster
-        cluster_mutants = np.array(mutant_names)[cluster_mask]
-        cluster_features = df.iloc[cluster_mask]
-        
-        if cluster == -1:
-            print("\nNoise points (outliers):")
-        else:
-            print(f"\nCluster {cluster}:")
-        
-        print(f"Number of mutants: {len(cluster_mutants)}")
-        print("Mutants:", ", ".join(cluster_mutants))
-        
-        print("\nCluster characteristics (mean values):")
-        for feature in df.columns:
-            mean_value = cluster_features[feature].mean()
-            print(f"{feature}: {mean_value:.2f}")
-        
-        print("-" * 50)
-
 def main():
     # File paths
     features_file = "data/output/features.json"
-    visualization_file = "data/output/clustering/dbscan_output.png"
+    output_dir = "data/output/clustering/"
+    os.makedirs(output_dir, exist_ok=True)
+    
+    visualization_file = os.path.join(output_dir, "dbscan_output.png")
+    cluster_assignments_file = os.path.join(output_dir, "cluster_assignments.json")
     
     # Load features
     feature_matrix, mutant_names, df = load_features(features_file)
@@ -130,18 +98,17 @@ def main():
         min_samples=2
     )
     
-    # Visualize results
-    visualize_clusters(normalized_features, clusters, mutant_names, visualization_file)
+    # Save cluster assignments
+    cluster_dict = save_cluster_assignments(clusters, mutant_names, cluster_assignments_file)
     
-    # Analyze clusters
-    analyze_clusters(clusters, mutant_names, df)
+    # Visualize results
+    visualize_clusters(normalized_features, clusters, visualization_file)
     
     # Print summary
-    n_clusters = len(np.unique(clusters)) - (1 if -1 in clusters else 0)
-    print(f"\nSummary:")
-    print(f"Total number of clusters found: {n_clusters}")
-    print(f"Number of noise points: {list(clusters).count(-1)}")
-    print(f"Visualization saved to: {visualization_file}")
+    cluster_counts = Counter(clusters)
+    print(f"🔢 Cluster distribution: {dict(cluster_counts)}")
+    print(f"✅ Cluster assignments saved to {cluster_assignments_file}")
+    print(f"📊 Clustering visualization saved to {visualization_file}")
 
 if __name__ == "__main__":
     main()
