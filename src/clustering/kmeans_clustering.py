@@ -27,10 +27,35 @@ mutant_names = df.index.tolist()
 scaler = StandardScaler()
 scaled_features = scaler.fit_transform(df)
 
+inertia = []
+k_range = range(1, 11)  # You can adjust the range as needed
+
+for k in k_range:
+    kmeans = KMeans(n_clusters=k, random_state=42, n_init=10)
+    kmeans.fit(scaled_features)
+    inertia.append(kmeans.inertia_)
+
+# 📉 Plot the elbow graph
+plt.figure(figsize=(10, 6))
+plt.plot(k_range, inertia, marker='o')
+plt.xlabel('Number of clusters (K)')
+plt.ylabel('Inertia')
+plt.title('Elbow Method For Optimal K')
+plt.xticks(k_range)
+#plt.grid(True)
+elbow_output_path = os.path.join(output_dir, "elbow_method.png")
+plt.savefig(elbow_output_path)
+print(f"📉 Elbow method graph saved to {elbow_output_path}")
+plt.show()
+
+
 # 🔍 Apply K-Means clustering (initially with 5 clusters)
 n_clusters = 40
 kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
 cluster_labels = kmeans.fit_predict(scaled_features)
+
+
+
 
 # 📌 Store results in a dictionary
 cluster_assignments = {mutant_names[i]: int(cluster_labels[i]) for i in range(len(mutant_names))}
