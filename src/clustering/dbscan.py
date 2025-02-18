@@ -86,7 +86,7 @@ def main():
     os.makedirs(output_dir, exist_ok=True)
     
     visualization_file = os.path.join(output_dir, "dbscan_output.png")
-    cluster_assignments_file = os.path.join(output_dir, "cluster_assignments.json")
+    cluster_assignments_file = os.path.join(output_dir, "dbscan_cluster_assignments.json")
     
     # Load features
     feature_matrix, mutant_names, df = load_features(features_file)

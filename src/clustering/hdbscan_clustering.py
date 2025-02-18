@@ -35,7 +35,7 @@ cluster_labels = clusterer.fit_predict(scaled_features)
 cluster_assignments = {mutant_names[i]: int(cluster_labels[i]) for i in range(len(mutant_names))}
 
 # 💾 Save cluster assignments to JSON
-output_path = os.path.join(output_dir, "cluster_assignments.json")
+output_path = os.path.join(output_dir, "hdbscan_cluster_assignments.json")
 with open(output_path, "w") as f:
     json.dump(cluster_assignments, f, indent=4)
 print(f"✅ Cluster assignments saved to {output_path}")

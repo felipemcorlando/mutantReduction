@@ -50,7 +50,7 @@ plt.show()
 
 
 # 🔍 Apply K-Means clustering (initially with 5 clusters)
-n_clusters = 40
+n_clusters = 15  # You can adjust the number of clusters as needed
 kmeans = KMeans(n_clusters=n_clusters, random_state=42, n_init=10)
 cluster_labels = kmeans.fit_predict(scaled_features)
 
