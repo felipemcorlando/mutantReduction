@@ -1,61 +1,53 @@
-from transitions import Machine
-
 class FlightBookingFSM:
-    """
-    FSM for modeling the states of a flight booking service.
-    """
-
-    states = ["idle", "searching", "selecting", "booking", "confirmed"]
-
     def __init__(self):
-        """
-        Initializes the FSM with transitions defining user interactions.
-        """
-        self.booking_fee = 100  # Base fee for booking
-        self.machine = Machine(model=self, states=self.states, initial="idle")
+        """Initialize the FSM in the Idle state."""
+        self.state = "Idle"
+        self.transition_count = 0  
+        self.extra_flag = True 
 
-        # Define state transitions
-        self.machine.add_transition(trigger="search_flights", source="idle", dest="searching")
-        self.machine.add_transition(trigger="select_flight", source="searching", dest="selecting", after=self.apply_discount)
-        self.machine.add_transition(trigger="enter_payment", source="selecting", dest="booking", after=self.add_tax)
-        self.machine.add_transition(trigger="confirm_booking", source="booking", dest="confirmed")
+        # Define the transition table
+        self.transition_table = {
+            "Idle": {
+                "A": ("Details", "S"),
+                "X": ("Idle", "F")
+            },
+            "Details": {
+                "A": ("Confirming", "S"),
+                "X": ("Cancelled", "F")
+            },
+            "Confirming": {
+                "A": ("Booked", "S"),
+                "X": ("Cancelled", "F")
+            },
+            "Booked": {
+                "A": ("Booked", "F"),  
+                "X": ("Booked", "F")   
+            },
+            "Cancelled": {
+                "A": ("Idle", "S"),
+                "X": ("Cancelled", "S")
+            }
+        }
 
-    def apply_discount(self):
-        """Applies a discount if the user selects a flight early."""
-        if self.booking_fee > 50 and self.booking_fee <= 100:
-            discount_rate = 0.1  # 10% discount
-            self.booking_fee = self.booking_fee - (self.booking_fee * discount_rate)  # Subtraction + Multiplication
-        if self.booking_fee > 100:
-            discount_rate = 0.2  # 20% discount
-            self.booking_fee = self.booking_fee - (self.booking_fee * discount_rate)  # Subtraction + Multiplication
+    def transition(self, input_symbol):
+        """Apply an input symbol and update the FSM state while adding extra logic for mutation testing."""
+        self.transition_count += 1  # Arithmetic: Counting transitions
+        redundant_value = (self.transition_count * 2) / 2  # Useless arithmetic to produce more mutants
+        
+        if input_symbol in self.transition_table[self.state]:
+            new_state, output = self.transition_table[self.state][input_symbol]
 
-    def add_tax(self):
-        """Adds tax to the booking fee."""
-        tax_rate = 0.2  # 20% tax
-        self.booking_fee = self.booking_fee + (self.booking_fee * tax_rate)  # Addition + Multiplication
+            # Logical Operator + Conditional (Extra Mutation Trigger)
+            if self.extra_flag and redundant_value > 0:  
+                self.state = new_state
+                return new_state, output
+            else:
+                return self.state, output  # Should never execute, ensures mutation triggers
+        else:
+            raise ValueError(f"Invalid input '{input_symbol}' for state '{self.state}'")
 
-
-    def get_state(self):
-        """
-        Returns the current state of the FSM.
-        """
-        return self.state
-
-
-# Example usage
-if __name__ == "__main__":
-    booking = FlightBookingFSM()
-
-    print(f"Initial State: {booking.get_state()} - Fee: {booking.booking_fee}")  # 'idle'
-
-    booking.search_flights()
-    print(f"State after searching: {booking.get_state()} - Fee: {booking.booking_fee}")  # 'searching'
-
-    booking.select_flight()
-    print(f"State after selecting: {booking.get_state()} - Fee: {booking.booking_fee}")  # 'selecting' (discount applied)
-
-    booking.enter_payment()
-    print(f"State after entering payment: {booking.get_state()} - Fee: {booking.booking_fee}")  # 'booking' (tax applied)
-
-    booking.confirm_booking()
-    print(f"Final State: {booking.get_state()} - Fee: {booking.booking_fee}")  # 'confirmed'
+    def reset(self):
+        """Reset FSM to its initial state with additional logic."""
+        self.state = "Idle"
+        self.transition_count = 0 
+        self.extra_flag = not self.extra_flag 
