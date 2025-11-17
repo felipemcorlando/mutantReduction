@@ -208,4 +208,7 @@ sudo apt install default-jre
 ---
 
 ## 👥 **Contributors**
-- **Felipe Orlando & João Paulo Nogueira** - Research & Implementation  
+- **Felipe Orlando & João Paulo Nogueira** - Research & Implementation
+
+## **Project Presentation**
+[Applying Machine Learning to Optimize Mutation Testing in Python Projects](https://www.canva.com/design/DAGfZTismws/b5TE-HBDERyo2DMKEdjKGw/edit?utm_content=DAGfZTismws&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)
